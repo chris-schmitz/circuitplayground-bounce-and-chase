@@ -1,0 +1,5 @@
+{
+    "board": "arduino:avr:circuitplay32u4cat",
+    "port": "/dev/cu.usbmodem1411",
+    "sketch": "BounceAndChase.ino"
+}
