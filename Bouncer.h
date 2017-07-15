@@ -1,29 +1,21 @@
-#ifndef CHASER_H
-#define CHASER_H
+#ifndef BOUNCER_H
+#define BOUNCER_H
 
 #include <Adafruit_CircuitPlayground.h>
-/* Not sure if I need this since I'm using circuit playground.
-#if (ARDUINO >= 100)
-  #include "Arduino.h"
-#else
-  #include "WProgram.h"
-#endif
-*/
 
-class Chaser
+class Bouncer
 {
   public:
-    // constructor
-    Chaser(int interval = 1000);
+    Bouncer(int interval = 1000);
 
     // methods
-    void chase(long currentMillis);
+    void bounce(long currentMillis);
 
     private:
       // member variables
       unsigned long _rangeBottom = 0;
       unsigned long _currentPointInRange = 0;
-      long _rangeTop = 1600;
+      long _rangeTop = 1400;
       long _trigger_0 = _rangeTop * 0;
       long _trigger_1 = _rangeTop * .10;
       long _trigger_2 = _rangeTop * .20;
@@ -34,7 +26,6 @@ class Chaser
       long _trigger_7 = _rangeTop * .70;
       long _trigger_8 = _rangeTop * .80;
       long _trigger_9 = _rangeTop * .90;
-
 };
 
 #endif
