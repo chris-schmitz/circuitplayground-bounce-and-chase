@@ -25,6 +25,7 @@ void Bouncer::bounce(long currentMillis) {
   // ------------------------------------------ //
   if (_currentPointInRange <= _trigger_0) {
     CircuitPlayground.setPixelColor(5, ORANGE);
+
     return;
   }
 
@@ -49,6 +50,9 @@ void Bouncer::bounce(long currentMillis) {
   if (_currentPointInRange <= _trigger_4) {
     CircuitPlayground.setPixelColor(8, OFF);
     CircuitPlayground.setPixelColor(9, ORANGE);
+    if (CircuitPlayground.slideSwitch()) {
+      CircuitPlayground.playTone(262, 100, false);
+    }
     return;
   }
 
@@ -78,6 +82,10 @@ void Bouncer::bounce(long currentMillis) {
 
   if (_currentPointInRange <= _trigger_9) {
     CircuitPlayground.setPixelColor(5, BLUE);
+
+    if (CircuitPlayground.slideSwitch()) {
+      CircuitPlayground.playTone(131, 100, false);
+    }
     return;
   }
 

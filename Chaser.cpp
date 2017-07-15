@@ -11,6 +11,7 @@ Chaser::Chaser(int interval) {
   _rangeTop = interval;
 }
 
+
 void Chaser::chase(long currentMillis) {
 
   _currentPointInRange = currentMillis - _rangeBottom;

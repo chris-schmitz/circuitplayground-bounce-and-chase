@@ -24,7 +24,7 @@ class Chaser
       unsigned long _rangeBottom = 0;
       unsigned long _currentPointInRange = 0;
       long _rangeTop = 1600;
-      long _trigger_0 = _rangeTop * 0;
+      long _trigger_0 = _rangeTop * .01;
       long _trigger_1 = _rangeTop * .10;
       long _trigger_2 = _rangeTop * .20;
       long _trigger_3 = _rangeTop * .30;
