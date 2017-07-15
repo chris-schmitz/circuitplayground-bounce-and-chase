@@ -1,26 +1,13 @@
 #include <Adafruit_CircuitPlayground.h>
-
+#include "Chaser.h"
 
 
 // Break this state machine logic out into a class and instantiate two instances
 // instead of duplicating it like this.
-unsigned long rangeBottom_A = 0;
-unsigned long currentPointInRange_A = 0;
-long rangeTop_A = 1600;
-long trigger_0_A = rangeTop_A * 0;
-long trigger_1_A = rangeTop_A * .10;
-long trigger_2_A = rangeTop_A * .20;
-long trigger_3_A = rangeTop_A * .30;
-long trigger_4_A = rangeTop_A * .40;
-long trigger_5_A = rangeTop_A * .50;
-long trigger_6_A = rangeTop_A * .60;
-long trigger_7_A = rangeTop_A * .70;
-long trigger_8_A = rangeTop_A * .80;
-long trigger_9_A = rangeTop_A * .90;
 
 unsigned long rangeBottom_B= 0;
 unsigned long currentPointInRange_B = 0;
-long rangeTop_B = 1000;
+long rangeTop_B = 1400;
 long trigger_0_B = rangeTop_B * 0;
 long trigger_1_B = rangeTop_B * .10;
 long trigger_2_B = rangeTop_B * .20;
@@ -40,6 +27,7 @@ long trigger_9_B = rangeTop_B * .90;
 #define GREEN 0xB3DB7F
 #define OFF 0x000000
 
+Chaser chaser(2000);
 
 void setup() {
   // Serial.begin(9600);
@@ -48,71 +36,11 @@ void setup() {
 
 void loop() {
   unsigned long currentMillis = millis();
-  chase(currentMillis);
+  chaser.chase(currentMillis);
   bounce(currentMillis);
 }
 
-void chase(long currentMillis) {
 
-  currentPointInRange_A = currentMillis - rangeBottom_A;
-
-  if (currentPointInRange_A >= rangeTop_A) {
-    rangeBottom_A = currentMillis;
-    return;
-  }
-
-  // ------------------------------------------ //
-
-  if (currentPointInRange_A <= trigger_0_A) {
-    CircuitPlayground.setPixelColor(0, DARKBLUE);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_1_A) {
-    CircuitPlayground.setPixelColor(1, DARKBLUE);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_2_A) {
-    CircuitPlayground.setPixelColor(2, DARKBLUE);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_3_A) {
-    CircuitPlayground.setPixelColor(3, DARKBLUE);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_4_A) {
-    CircuitPlayground.setPixelColor(4, DARKBLUE);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_5_A) {
-    CircuitPlayground.setPixelColor(0, OFF);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_6_A) {
-    CircuitPlayground.setPixelColor(1, OFF);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_7_A) {
-    CircuitPlayground.setPixelColor(2, OFF);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_8_A) {
-    CircuitPlayground.setPixelColor(3, OFF);
-    return;
-  }
-
-  if (currentPointInRange_A <= trigger_9_A) {
-    CircuitPlayground.setPixelColor(4, OFF);
-    return;
-  }
-}
 
 void bounce(long currentMillis) {
 
